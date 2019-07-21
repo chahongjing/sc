@@ -51,9 +51,8 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:9100/eureka/
   instance:
-    instance-id: abc.java.com
     prefer-ip-address: true #访问路径可以显示IP地址
-
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
 mybatis:
   mapper-locations: classpath:mybatis/*.xml
   type-aliases-package: com.zjy.service.dao

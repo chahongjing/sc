@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class MyController {
+public class Service2Controller {
 
     @GetMapping("/getHostMessage/{id}")
     @HystrixCommand(fallbackMethod = "getHostMessageFallback")

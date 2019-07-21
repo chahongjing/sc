@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 9300
 
 spring:
   application:
@@ -10,7 +10,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:9100/eureka/
   instance:
-    instance-id: hystrix.java.com
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
     prefer-ip-address: true #访问路径可以显示IP地址
 info:
   app.name: hystrix

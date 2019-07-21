@@ -6,7 +6,7 @@ spring:
           # 配置仓库路径
           search-paths: config/src/gitconfig
           # 配置git仓库地址
-          uri: https://github.com/chahongjing/springclouddemo.git
+          uri: https://github.com/chahongjing/sc.git
         #          #  用户名密码
         #          username: xxxxoooo
         #          password: xxxxoooo
