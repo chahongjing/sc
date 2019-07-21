@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # 配置仓库路径
+          search-paths: config/src/gitconfig
+          # 配置git仓库地址
+          uri: https://github.com/chahongjing/springclouddemo.git
+        #          #  用户名密码
+        #          username: xxxxoooo
+        #          password: xxxxoooo
+        default-application-name: config-server
+      # 配置仓库的分支
+      label: master
+server:
+  port: 9400

@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: hystrix
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9100/eureka/
+  instance:
+    instance-id: hystrix.java.com
+    prefer-ip-address: true #访问路径可以显示IP地址
+info:
+  app.name: hystrix
+  app.update: 2018-10-07
+  build.groupId: $project.groupId$
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

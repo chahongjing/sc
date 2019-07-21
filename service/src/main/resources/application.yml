@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://localhost:9400/
+  application:
+    name: spring-cloud-producer
+  datasource:
+    password: root
+    ######Druid监控配置######
+    # 初始化大小，最小，最大
+    druid:
+      # 配置StatFilter  **打印慢sql** 大于200毫秒的标记为慢sql
+      filter:
+        stat:
+          db-type: mysql
+          slow-sql-millis: 200
+          log-slow-sql: true
+      minIdle: 5
+      initialSize: 5
+      StatViewServlet:
+        loginUsername: druid
+        loginPassword: druid
+      WebStatFilter:
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      maxActive: 30
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/toolsitemvc4j?useUnicode=true&characterEncoding=utf-8&noDatetimeStringSync=true&serverTimezone=Hongkong
+    username: root
+  zipkin:
+    base-url: http://localhost:9411
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1 #抽样百分比,默认0.1 就是百分十
+server:
+  port: 9200
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude:
+  endpoint:
+    health:
+      show-details: always
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9100/eureka/
+  instance:
+    instance-id: abc.java.com
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.zjy.service.dao
+info:
+  app.name: spring-cloud-producer
+  app.update: 2018-10-30
+  build.groupId: $project.groupId$
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
