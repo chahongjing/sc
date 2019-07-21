@@ -55,6 +55,7 @@ public class ServiceIndexController {
         if (user != null && StringUtils.isNotBlank(user.getName())) {
             map.put("dbName", user.getName());
         }
+        System.out.println("数据来源：" + port);
         return map;
     }
 
