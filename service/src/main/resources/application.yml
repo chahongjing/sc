@@ -1,9 +1,4 @@
 spring:
-  cloud:
-    config:
-      profile: dev
-      label: master
-      uri: http://localhost:9400/
   application:
     name: spring-cloud-producer
   datasource:
