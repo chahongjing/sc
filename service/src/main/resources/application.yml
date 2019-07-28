@@ -57,3 +57,6 @@ info:
   build.groupId: $project.groupId$
   build.artifactId: $project.artifactId$
   build.version: $project.version$
+logging:
+  config: classpath:logback-spring.xml
+  path: D:/logs

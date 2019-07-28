@@ -1,5 +1,6 @@
 package com.zjy.service.controllers;
 
+import brave.Tracer;
 import com.zjy.service.po.User;
 import com.zjy.service.services.UserService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -27,6 +28,9 @@ public class ServiceIndexController {
     @Autowired
     private UserService userSrv;
 
+    @Autowired
+    private Tracer tracer;
+
     @Value("${spring.application.name}")
     private String applicationName;
 
@@ -44,6 +48,8 @@ public class ServiceIndexController {
 //        map.put("configName", configname);
         map.put("applicationName", applicationName);
         map.put("port", port);
+        String spanId = tracer.currentSpan().context().spanIdString();
+        String traceId = tracer.currentSpan().context().traceIdString();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         map.put("datetime", dateTimeFormatter.format(LocalDateTime.now()));
 //        User user = userSrv.get(1L);
