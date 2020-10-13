@@ -40,7 +40,7 @@
         <pagehelper-springboot>1.2.10</pagehelper-springboot>
         <druid-springboot>1.1.16</druid-springboot>
         <fastjson>1.2.58</fastjson>
-        <junit>4.11</junit>
+        <junit>4.13.1</junit>
     </properties>
 
     <dependencyManagement>
