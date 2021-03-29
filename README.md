@@ -1,7 +1,7 @@
 # spring cloud
 ### 说明
 |模块|实现|访问|说明|
-|-|-|-|-|
+|---|---|---|---|
 |配置中心|spring-cloud-config|[9400](http://localhost:9400/)|从git中获取配置<br>@EnableConfigServer, @EnableDiscoveryClient|
 |服务注册与发现|spring-netflix-eureka|[9100](http://localhost:9100/)|@EnableEurekaServer|
 |服务提供|springboot|[9200](http://localhost:9200/hello?name=zjy) \| [9300](http://localhost:9300/getHostMessage/1123)|1. 使用bootstrap.yml配置配置服务获取相关配置<br>2. 指定zipkin和sleuth进行服务调用跟踪<br>3. @EnableEurekaClient, @EnableDiscoveryClient,@EnableCircuitBreaker<br>4. 同一服务不同实例必变端口即可|
